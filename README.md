@@ -4,9 +4,9 @@
 
 This project was built with Python 3.7.3
 
-$ source venv/bin/activate
-
 $ pip install -r requirements.txt
+
+$ source venv/bin/activate
 
 $ python manage.py runserver
 
