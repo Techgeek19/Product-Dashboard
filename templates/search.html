@@ -1,16 +1,15 @@
 {% extends 'base.html'%}
 
-{% block content %}
+{% block content %}image
 {% load static %}
-
-
+{% static 'images' as baseUrl %}
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark shadow" id="mainNav">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url 'pdetail' %}"> Product Detail </a>
         <form method="POST" action="/sr/" class="form-inline ml-4 mr-auto">
-          {% csrf_token %}
+            {% csrf_token %}
           <input class="form-control" type="text" name="sr" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+          <button action="/sr/" class="btn btn-primary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
         </form>
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
@@ -21,7 +20,7 @@
     <!-- navbar end -->
 
 <div class="container-fluid">
-<div class="row mt-5 ">
+<div class="row mt-4 ">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column mt-3">
@@ -66,6 +65,8 @@
        </div>
     search result  -->
 
+    {% if obj %}
+
     <!-- search result end here -->
       {% for object in obj %}
   <div class="card mx-4 mb-4" style="width: 18rem;">
@@ -77,6 +78,6 @@
     </div>
     {% endfor %}
   </div>
-
+{% endif %}
    
 {% endblock %}

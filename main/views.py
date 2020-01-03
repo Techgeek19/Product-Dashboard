@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 # from django.views import generic
@@ -61,3 +60,23 @@ def plist(request):
 def pdetail(request):
     obj= product.objects.all()
     return render(request,'pdetail.html', {'obj': obj})
+
+def search(request):
+    if request.method == 'POST':
+        sr= request.POST['sr']
+        if sr:
+            match= product.objects.filter(name__icontains= sr)
+            if match:
+                return render (request, 'search.html', {'obj':match})
+            else:
+                print('notfound')
+        else:
+            return redirect('search')
+    return render(request,'search.html')
+
+
+
+            
+            
+
+

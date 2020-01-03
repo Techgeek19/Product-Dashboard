@@ -8,4 +8,5 @@ urlpatterns = [
     path('logout/', views.logout, name= 'logout' ),
     path('plist/', views.plist, name= 'plist' ),
     path('pdetail/', views.pdetail, name= 'pdetail' ),
+    path('sr/', views.search, name= 'search' ),
 ]
