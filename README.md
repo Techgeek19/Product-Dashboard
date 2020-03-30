@@ -8,6 +8,9 @@ $ source venv/bin/activate
 
 $ pip3 install -r requirements.txt
 
+#Create a new Database named newproject\
+$ python manage.py migrate
+
 $ python manage.py runserver
 
 Then head to
